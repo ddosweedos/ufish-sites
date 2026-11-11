@@ -1,0 +1,256 @@
+#bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+ 
+.hero, .about {
+    position: relative;
+    z-index: 1;
+}
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+body {
+    background: radial-gradient(
+        ellipse 80% 60% at 50% 0%,
+        #1a6fa8 0%,
+        #103b60 35%,
+        #07131f 65%,
+        #02060d 100%
+    );
+    background-size: 100% 120%;
+    animation: gradientMove 8s ease infinite;
+    color: white;
+    overflow-x: hidden;
+}
+ 
+@keyframes gradientMove {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+ 
+.hero {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+ 
+.container{
+
+    width:min(100%,420px);
+
+    margin:auto;
+
+    padding:24px;
+
+}
+ 
+.logo {
+    margin-bottom: 45px;
+    display: flex;
+    justify-content: center;
+}
+ 
+.logo-scroll {
+    display: flex;
+    justify-content: center;
+}
+ 
+.logo img {
+    width:clamp(150px,40vw,220px);
+    height: auto;
+    animation: float 5s ease-in-out infinite;
+    filter:
+        drop-shadow(0 0 8px rgba(0,191,255,.5))
+        drop-shadow(0 0 25px rgba(0,191,255,.25));
+}
+ 
+.logo img:hover {
+    transform: scale(1.05);
+    filter:
+        drop-shadow(0 0 15px #00bfff)
+        drop-shadow(0 0 35px rgba(0,191,255,.5));
+}
+ 
+@keyframes float {
+    0%   { transform: translateY(0px) rotate(0deg); }
+    25%  { transform: translateY(-5px) rotate(1deg); }
+    50%  { transform: translateY(-10px) rotate(0deg); }
+    75%  { transform: translateY(-5px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+ 
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+ 
+.menu-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width:min(100%,320px);
+    height:58px;
+    font-size:17px;
+    text-decoration: none;
+    color: white;
+    border-radius: 12px;
+    background: rgba(255,255,255,.15);
+    transition: .25s;
+}
+ .menu-btn:hover {
+    background: rgba(255,255,255,.25);
+    transform: translateY(-3px);
+}
+.menu-btn:active{
+
+    transform:scale(.97);
+    background: rgba(255,255,255,.25);
+    transform: translateY(-3px);
+}
+ 
+.niche-box {
+    margin-top: 28px;
+    padding: 18px 28px;
+    border-radius: 16px;
+    background: rgba(0, 191, 255, 0.08);
+    border: 1px solid rgba(0, 191, 255, 0.25);
+    text-align: center;
+    backdrop-filter: blur(12px);
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+ 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+ 
+.niche-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px 18px;
+}
+.niche-tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #00bfff;
+}
+ 
+.niche-tag {
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.12);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+ 
+.niche-sub {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+}
+ 
+.niche-cities {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+ 
+.about {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px 60px;
+}
+ 
+.about-container {
+    text-align: center;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+ 
+.about-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+ 
+.vietnam-flag {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+ 
+.about h2 {
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: #00bfff;
+}
+ 
+.deals {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #ffd700;
+    margin-top: 12px;
+}
+ 
+.about p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+}
+ 
+@media (max-width: 768px) {
+    .logo img { width: 180px; }
+    .menu-btn { width: 90%; }
+ 
+    .about h2 {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+ 
+    .vietnam-flag {
+        font-size: 52px;
+        margin-bottom: 14px;
+    }
+ 
+    .deals {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+ 
+    .niche-tag {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+ 
+    .niche-cities {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+}
